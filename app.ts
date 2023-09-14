@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { json } from "body-parser";
 import cors from "cors";
+import * as swaggerUi from "swagger-ui-express";
 import * as YAML from "yaml";
 
 const app = express();
@@ -23,6 +24,7 @@ const logTodos = (username: string) => {
   console.log("Todos:");
   console.log(_TODOS[username]);
 };
+app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.post("/todos/:username", async (req, res) => {
   const username = req.params.username;
   if (!_TODOS[username]) {
