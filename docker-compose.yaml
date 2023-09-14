@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   mysqldb:
+    container_name: demo-plugin-sql-server
     image: mysql:5.7
     restart: unless-stopped
     env_file: ./.env
@@ -13,9 +14,12 @@ services:
     volumes:
       - db:/var/lib/mysql
   app:
+    image: demo-plugin-app
     depends_on:
       - mysqldb
-    build: ./
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: unless-stopped
     env_file: ./.env
     ports:
