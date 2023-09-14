@@ -4,7 +4,7 @@ info:
   description: A plugin that allows the user to create and manage a TODO list using ChatGPT. If you do not know the user's username, ask them first before making queries to the plugin. Otherwise, use the username "global".
   version: "v1"
 servers:
-  - url: localhost:4832
+  - url: http://localhost:4832
     description: Local server
 paths:
   /todos:
@@ -74,6 +74,21 @@ paths:
 
 components:
   schemas:
+    getAllTodosResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          username:
+            type: string
+            description: The username of the user.
+          todos:
+            type: array
+            items:
+              type: string
+            description: The list of todos for a single user.
+      description: The list of all todos.
+  
     getTodosResponse:
       type: object
       properties:
@@ -81,7 +96,7 @@ components:
           type: array
           items:
             type: string
-          description: The list of todos.
+          description: The list of todos for a single user.
     addTodoRequest:
       type: object
       required:

@@ -35,7 +35,7 @@ app.post("/todos/:username", async (req, res) => {
   res.status(200).send("OK");
 });
 
-app.get("/todos/", async (req, res) => {
+app.get("/todos", async (req, res) => {
   res.status(200).json({ todos: _TODOS } || { todos: [] });
 });
 
