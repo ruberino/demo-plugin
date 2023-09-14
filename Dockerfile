@@ -7,4 +7,4 @@ RUN npm install
 RUN npm install -g typescript
 RUN npm install -g ts-node
 CMD npm start
-EXPOSE 4832
+EXPOSE 4833

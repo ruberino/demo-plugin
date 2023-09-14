@@ -5,7 +5,7 @@ import * as swaggerUi from "swagger-ui-express";
 import * as YAML from "yaml";
 
 const app = express();
-const port = 4832;
+const port = 4833;
 
 app.use(
   cors({
