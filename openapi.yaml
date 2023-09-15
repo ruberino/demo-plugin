@@ -8,7 +8,6 @@ paths:
     get:
       operationId: getAllTodos
       summary: Get all todos
-      content:
       responses:
         "200":
           description: OK
@@ -19,7 +18,7 @@ paths:
   /todos/{username}:
     get:
       operationId: getTodos
-      summary: Get the list of todos
+      summary: Get the list of todos for a single user
       parameters:
         - in: path
           name: username
@@ -59,12 +58,6 @@ paths:
             type: string
           required: true
           description: The name of the user.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/deleteTodoRequest"
       responses:
         "200":
           description: OK
@@ -102,13 +95,4 @@ components:
         todo:
           type: string
           description: The todo to add to the list.
-          required: true
-    deleteTodoRequest:
-      type: object
-      required:
-        - todo_idx
-      properties:
-        todo_idx:
-          type: integer
-          description: The index of the todo to delete.
           required: true
