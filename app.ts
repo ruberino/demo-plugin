@@ -47,10 +47,7 @@ app.get("/todos/:username", async (req, res) => {
 
 app.delete("/todos/:username", async (req, res) => {
   const username = req.params.username;
-  const todoIdx = req.body.todo_idx;
-  if (0 <= todoIdx && todoIdx < _TODOS[username].length) {
-    _TODOS[username].splice(todoIdx, 1);
-  }
+  _TODOS[username] = [];
   logTodos(username);
   res.status(200).send("OK");
 });

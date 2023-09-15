@@ -7,7 +7,7 @@ paths:
   /todos:
     get:
       operationId: getAllTodos
-      summary: Get all todos
+      summary: Get all todos for all users
       responses:
         "200":
           description: OK
@@ -53,7 +53,7 @@ paths:
           description: OK
     delete:
       operationId: deleteTodo
-      summary: Delete a todo from the list
+      summary: Delete all the todos for a single user
       parameters:
         - in: path
           name: username
