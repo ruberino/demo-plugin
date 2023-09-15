@@ -44,7 +44,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/addTodoRequest"
+              type: object
+              properties:
+                todo:
+                  type: string
       responses:
         "200":
           description: OK
@@ -79,20 +82,3 @@ components:
             description: The list of todos for a single user.
       description: The list of all todos.
 
-    getTodosResponse:
-      type: object
-      properties:
-        todos:
-          type: array
-          items:
-            type: string
-          description: The list of todos for a single user.
-    addTodoRequest:
-      type: object
-      required:
-        - todo
-      properties:
-        todo:
-          type: string
-          description: The todo to add to the list.
-          required: true
